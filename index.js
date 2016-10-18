@@ -47,8 +47,10 @@ bot.on('message', msg => {
       // 文本消息
       // 自定义命令
       if (msg.Content == '科科' && msg.isSendBy(bot.user)) {
+      	var number = new Number(Math.random()*1000).toFixed(0)
         users.add(msg.ToUserName)
-        sendEmoticon(msg.ToUserName)
+        sendEmoticon(msg.ToUserName,number)
+        console.log('随机开始数：'+number)
         console.log('开始轰炸', bot.contacts[msg.ToUserName].getDisplayName())
       } else if (msg.Content == '拜拜' && msg.isSendBy(bot.user)) {
         users.delete(msg.ToUserName)
